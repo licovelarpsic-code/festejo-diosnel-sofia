@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diosnel 15 & Sofía 14 — ¡Los esperamos!</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Bebas+Neue&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #0a0a0f;
+    --plata: #c8d4e0;
+    --azul: #1e4a8c;
+    --azul-claro: #3a7bd5;
+    --beige: #f5ede0;
+    --rojo: #c0392b;
+    --rojo-suave: #e74c3c;
+    --blanco: #ffffff;
+    --dorado: #d4af37;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--negro);
+    color: var(--blanco);
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    background: linear-gradient(160deg, #0a0a0f 0%, #0d1b35 50%, #0a0a0f 100%);
+  }
+
+  .hero-net {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(30,74,140,0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,74,140,0.15) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: netMove 20s linear infinite;
+  }
+
+  @keyframes netMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 60px 60px; }
+  }
+
+  .hero-ball {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%,
+      rgba(58,123,213,0.12) 0%,
+      rgba(30,74,140,0.06) 40%,
+      transparent 70%);
+    border: 1px solid rgba(200,212,224,0.08);
+    top: -100px; right: -100px;
+    animation: floatBall 8s ease-in-out infinite;
+  }
+
+  .hero-ball2 {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 65% 65%,
+      rgba(192,57,43,0.08) 0%,
+      rgba(245,237,224,0.04) 40%,
+      transparent 70%);
+    border: 1px solid rgba(192,57,43,0.12);
+    bottom: -80px; left: -80px;
+    animation: floatBall 10s ease-in-out infinite reverse;
+  }
+
+  @keyframes floatBall {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(15deg); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+  }
+
+  .parents-invite {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--plata);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s ease 0.2s both;
+  }
+
+  .hero-names-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    animation: fadeUp 1s ease 0.4s both;
+  }
+
+  .name-diosnel {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, var(--plata) 0%, var(--azul-claro) 50%, var(--plata) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    text-shadow: none;
+    filter: drop-shadow(0 0 30px rgba(58,123,213,0.4));
+  }
+
+  .hero-divider {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-style: italic;
+    color: var(--dorado);
+    opacity: 0.8;
+    line-height: 1;
+  }
+
+  .name-sofia {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #f5ede0 0%, var(--rojo-suave) 50%, #f5ede0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    filter: drop-shadow(0 0 30px rgba(192,57,43,0.4));
+  }
+
+  .ages-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s ease 0.5s both;
+  }
+
+  .age-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .age-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .age-num.blue { color: var(--azul-claro); }
+  .age-num.red  { color: var(--rojo-suave); }
+
+  .age-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--plata);
+    opacity: 0.6;
+    margin-top: 0.2rem;
+  }
+
+  .age-sep {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--dorado);
+    opacity: 0.5;
+  }
+
+  .hero-phrase {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: var(--plata);
+    opacity: 0.85;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    animation: fadeUp 1s ease 0.6s both;
+  }
+
+  .volleyball-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hero-date-box {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(200,212,224,0.15);
+    border-radius: 16px;
+    padding: 1.2rem 2.5rem;
+    backdrop-filter: blur(10px);
+    animation: fadeUp 1s ease 0.8s both;
+  }
+
+  .hero-date-box .date-main {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    letter-spacing: 0.15em;
+    color: var(--blanco);
+  }
+
+  .hero-date-box .date-sub {
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--plata);
+    opacity: 0.6;
+    margin-top: 0.2rem;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    opacity: 0.4;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  .scroll-hint span { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; }
+  .scroll-hint .arrow { font-size: 1.2rem; }
+  @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:0.8} }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── SECTIONS BASE ────────────────────────────────────── */
+  section {
+    padding: 5rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    line-height: 1.2;
+  }
+
+  /* ─── DIVIDER ─────────────────────────────────────────── */
+  .full-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200,212,224,0.2), transparent);
+  }
+
+  /* ─── COUNTDOWN ───────────────────────────────────────── */
+  .countdown-section {
+    text-align: center;
+  }
+
+  .countdown-section .section-label { color: var(--dorado); }
+
+  .countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(30,74,140,0.2), rgba(10,10,15,0.8));
+    border: 1px solid rgba(200,212,224,0.12);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    min-width: 110px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .countdown-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(58,123,213,0.05), transparent);
+  }
+
+  .countdown-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    color: var(--plata);
+    line-height: 1;
+    position: relative;
+  }
+
+  .countdown-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--plata);
+    opacity: 0.5;
+    margin-top: 0.3rem;
+    position: relative;
+  }
+
+  /* ─── EVENT INFO ──────────────────────────────────────── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .info-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(200,212,224,0.1);
+    border-radius: 16px;
+    padding: 1.8rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .info-card:hover {
+    border-color: rgba(58,123,213,0.3);
+    transform: translateY(-4px);
+  }
+
+  .info-card .icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+
+  .info-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    color: var(--plata);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+  }
+
+  .info-card p {
+    font-size: 1rem;
+    color: var(--blanco);
+    line-height: 1.5;
+    font-weight: 600;
+  }
+
+  .info-card .sub {
+    font-size: 0.8rem;
+    color: var(--plata);
+    opacity: 0.5;
+    font-weight: 300;
+    margin-top: 0.2rem;
+    display: block;
+  }
+
+  /* ─── DRESS CODE ──────────────────────────────────────── */
+  .dress-section { text-align: center; }
+
+  .dress-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    text-align: left;
+  }
+
+  .dress-card {
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dress-card.dark {
+    background: linear-gradient(135deg, #0d1b35, #0a0a0f);
+    border: 1px solid rgba(58,123,213,0.25);
+  }
+
+  .dress-card.light {
+    background: linear-gradient(135deg, #2a1a1a, #1a0d0d);
+    border: 1px solid rgba(192,57,43,0.25);
+  }
+
+  .dress-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .dress-card.dark h3 { color: var(--azul-claro); }
+  .dress-card.light h3 { color: var(--rojo-suave); }
+
+  .dress-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .dress-card ul li {
+    font-size: 0.9rem;
+    color: var(--plata);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    line-height: 1.4;
+  }
+
+  .dress-card ul li::before { content: '▸'; opacity: 0.5; flex-shrink: 0; margin-top: 1px; }
+
+  .pool-note {
+    margin-top: 2rem;
+    background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(212,175,55,0.03));
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .pool-note .pool-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .pool-note p { font-size: 0.92rem; color: var(--plata); line-height: 1.6; }
+  .pool-note strong { color: var(--dorado); }
+
+  /* ─── RSVP ────────────────────────────────────────────── */
+  .rsvp-section {
+    text-align: center;
+    padding: 5rem 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .rsvp-section .section-label { color: var(--rojo-suave); }
+
+  .rsvp-box {
+    margin-top: 2rem;
+    background: linear-gradient(135deg, rgba(192,57,43,0.08), rgba(10,10,15,0.9));
+    border: 1px solid rgba(192,57,43,0.2);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+  }
+
+  .rsvp-box p {
+    color: var(--plata);
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    font-size: 0.97rem;
+  }
+
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.25);
+    letter-spacing: 0.05em;
+  }
+
+  .btn-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(37,211,102,0.4);
+  }
+
+  .btn-whatsapp .wa-icon { font-size: 1.3rem; }
+
+  /* ─── UBICACIÓN ───────────────────────────────────────── */
+  .location-section { text-align: center; }
+
+  .location-section .section-label { color: var(--azul-claro); }
+
+  .location-details {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(200,212,224,0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .location-details .venue-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .location-details .venue-addr {
+    color: var(--plata);
+    opacity: 0.65;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-maps {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 30px rgba(30,74,140,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  .btn-maps:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(30,74,140,0.5);
+  }
+
+  /* ─── FOOTER ──────────────────────────────────────────── */
+  footer {
+    text-align: center;
+    padding: 3rem 1.5rem 4rem;
+    border-top: 1px solid rgba(200,212,224,0.07);
+  }
+
+  footer .foot-names {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.15em;
+    background: linear-gradient(90deg, var(--azul-claro), var(--dorado), var(--rojo-suave));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+    color: var(--plata);
+    opacity: 0.35;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  footer .vball { font-size: 1.5rem; display: block; margin-top: 1.5rem; opacity: 0.3; }
+
+  /* ─── RESPONSIVE ──────────────────────────────────────── */
+  @media (max-width: 500px) {
+    .hero-names-wrapper { gap: 0.8rem; }
+    .hero-divider { font-size: 2rem; }
+    .countdown-item { min-width: 80px; padding: 1rem 1.2rem; }
+    .ages-row { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-net"></div>
+  <div class="hero-ball"></div>
+  <div class="hero-ball2"></div>
+
+  <div class="hero-content">
+    <p class="parents-invite">Perla Ovelar &amp; Enrique Nuñez<br>tienen el placer de invitarlos a celebrar</p>
+
+    <span class="volleyball-icon">🏐</span>
+
+    <div class="hero-names-wrapper">
+      <span class="name-diosnel">Diosnel</span>
+      <span class="hero-divider">&amp;</span>
+      <span class="name-sofia">Sofía</span>
+    </div>
+
+    <div class="ages-row">
+      <div class="age-badge">
+        <span class="age-num blue">15</span>
+        <span class="age-label">años</span>
+      </div>
+      <span class="age-sep">·</span>
+      <div class="age-badge">
+        <span class="age-num red">14</span>
+        <span class="age-label">años</span>
+      </div>
+    </div>
+
+    <p class="hero-phrase">"El equipo más importante siempre es la familia"</p>
+
+    <div class="hero-date-box">
+      <span class="date-main">Sábado, 11 de Abril — 10:00 a 17:00 hs</span>
+      <span class="date-sub">Quinta Los Laureles · Ñemby</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Ver más</span>
+    <span class="arrow">↓</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     CUENTA REGRESIVA
+══════════════════════════════════════════════ -->
+<div class="full-divider"></div>
+
+<section class="countdown-section" id="countdown">
+  <span class="section-label">⏱ Faltan</span>
+  <h2 class="section-title">Cuenta regresiva</h2>
+  <div class="countdown-grid">
+    <div class="countdown-item"><span class="countdown-num" id="cd-dias">--</span><span class="countdown-label">Días</span></div>
+    <div class="countdown-item"><span class="countdown-num" id="cd-horas">--</span><span class="countdown-label">Horas</span></div>
+    <div class="countdown-item"><span class="countdown-num" id="cd-min">--</span><span class="countdown-label">Minutos</span></div>
+    <div class="countdown-item"><span class="countdown-num" id="cd-seg">--</span><span class="countdown-label">Segundos</span></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     INFO DEL EVENTO
+══════════════════════════════════════════════ -->
+<div class="full-divider"></div>
+
+<section id="evento">
+  <span class="section-label">📅 El gran día</span>
+  <h2 class="section-title">Detalles del evento</h2>
+  <div class="info-grid">
+    <div class="info-card">
+      <span class="icon">📅</span>
+      <h3>Fecha</h3>
+      <p>Sábado, 11 de Abril de 2026</p>
+    </div>
+    <div class="info-card">
+      <span class="icon">🕙</span>
+      <h3>Horario</h3>
+      <p>10:00 a 17:00 hs</p>
+      <span class="sub">¡No llegues tarde al partido!</span>
+    </div>
+    <div class="info-card">
+      <span class="icon">📍</span>
+      <h3>Lugar</h3>
+      <p>Quinta Los Laureles</p>
+      <span class="sub">Pa'i Ñu, Ñemby<br>Calle Los Laureles casi Av. Pratt Gill</span>
+    </div>
+    <div class="info-card">
+      <span class="icon">🏐</span>
+      <h3>Tema</h3>
+      <p>¡Volleyball!</p>
+      <span class="sub">Ven listo para jugar y festejar</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     DRESS CODE
+══════════════════════════════════════════════ -->
+<div class="full-divider"></div>
+
+<section id="dresscode">
+  <span class="section-label">👗 Vestimenta</span>
+  <h2 class="section-title" style="text-align:center">Dress Code</h2>
+  <p style="text-align:center;color:var(--plata);opacity:0.7;margin-top:-1rem;margin-bottom:2rem;font-size:0.95rem;">
+    El estilo del día es <strong style="color:var(--blanco);">Sport Elegante</strong>
+  </p>
+
+
+
+  <div class="pool-note">
+    <span class="pool-icon">🏊</span>
+    <p>
+      <strong>¡Habrá pileta!</strong> Los adolescentes deben traer obligatoriamente
+      <strong>una muda de ropa adicional</strong> (traje de baño, ropa para entrar al agua
+      y una toalla) para disfrutar de la pileta durante la celebración.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CONFIRMAR ASISTENCIA
+══════════════════════════════════════════════ -->
+<div class="full-divider"></div>
+
+<section class="rsvp-section" id="rsvp">
+  <span class="section-label">✉️ Confirmación</span>
+  <h2 class="section-title">¿Venís al festejo?</h2>
+
+  <div class="rsvp-box">
+    <p>
+      Para poder organizarnos mejor y que nadie se quede afuera del equipo,
+      te pedimos confirmar tu asistencia a través de WhatsApp.<br><br>
+      Hacé clic en el botón y enviá un mensajito a <strong style="color:var(--blanco);">Perla</strong> confirmando cuántas personas van a asistir. 🏐
+    </p>
+    <a
+      class="btn-whatsapp"
+      href="https://wa.me/595971263841?text=¡Hola%20Perla!%20Confirmo%20mi%20asistencia%20al%20festejo%20de%20Diosnel%20y%20Sofía%20el%2011%20de%20abril%20🏐"
+      target="_blank"
+      rel="noopener"
+    >
+      <span class="wa-icon">💬</span>
+      Confirmar por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     UBICACIÓN
+══════════════════════════════════════════════ -->
+<div class="full-divider"></div>
+
+<section class="location-section" id="ubicacion">
+  <span class="section-label">📍 Cómo llegar</span>
+  <h2 class="section-title">Ubicación</h2>
+
+  <div class="location-details">
+    <p class="venue-name">Quinta Los Laureles</p>
+    <p class="venue-addr">Calle Los Laureles casi Av. Pratt Gill · Pa'i Ñu, Ñemby · Paraguay</p>
+    <a
+      class="btn-maps"
+      href="https://maps.app.goo.gl/aaaMvd3xcZrpmTYU6"
+      target="_blank"
+      rel="noopener"
+    >
+      <span>📍</span> Abrir en Google Maps
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<div class="full-divider"></div>
+
+<footer>
+  <p class="foot-names">Diosnel &amp; Sofía</p>
+  <p>11 de Abril · 10:00 a 17:00 hs · Quinta Los Laureles</p>
+  <span class="vball">🏐 🏐 🏐</span>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════ -->
+<script>
+  // Countdown to April 11, 2026 at 10:00 AM (Paraguay, UTC-4)
+  const target = new Date('2026-04-11T10:00:00-04:00');
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      document.getElementById('cd-dias').textContent = '00';
+      document.getElementById('cd-horas').textContent = '00';
+      document.getElementById('cd-min').textContent = '00';
+      document.getElementById('cd-seg').textContent = '00';
+      return;
+    }
+
+    const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('cd-dias').textContent  = String(days).padStart(2,'0');
+    document.getElementById('cd-horas').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-min').textContent   = String(mins).padStart(2,'0');
+    document.getElementById('cd-seg').textContent   = String(secs).padStart(2,'0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(s => {
+    s.style.opacity = '0';
+    s.style.transform = 'translateY(40px)';
+    s.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    observer.observe(s);
+  });
+</script>
+</body>
+</html>
